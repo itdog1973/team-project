@@ -1,0 +1,187 @@
+/* ==================== variable ==================== */
+/* ==================== initialize ==================== */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: #8A8A8A;
+}
+
+li {
+  list-style: none;
+}
+
+/* ==================== desktops ==================== */
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  background-color: #FAFAFA;
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 600px;
+  height: 50px;
+}
+
+body header h1 {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+body header select {
+  border: 0;
+  border-radius: 3px;
+  margin-left: 10px;
+  /* width: 300px; */
+  color: #333;
+  font-size: 40px;
+  font-weight: 700;
+  /* -webkit-text-stroke: 1px #333; */
+  cursor: pointer;
+  background-color: #fafafa;
+}
+
+body header select:hover {
+  border-bottom: 3px solid #FEE573;
+}
+
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1000px;
+}
+
+body main .weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+body main .weather img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body main .weather .weather__item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+body main .weather .weather__item h2 {
+  height: 150px;
+  font-size: 150px;
+  font-weight: 400;
+  color: #333;
+}
+
+body main .weather .weather__item span {
+  padding-right: 30px;
+  height: 40px;
+  font-size: 30px;
+}
+
+body main .weather .weather__info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 200px;
+}
+
+body main .weather .weather__info li {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-left: 30px;
+}
+
+body main .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 40px auto;
+  margin-bottom: 200px;
+  height: 40px;
+}
+
+body main .time li {
+  padding: 0 100px;
+}
+
+body main .time li:hover {
+  border-bottom: 3px solid #FEE573;
+}
+
+body footer {
+  font-size: 20px;
+}
+
+body footer span {
+  font-size: 20px;
+}
+/*# sourceMappingURL=index.css.map */
