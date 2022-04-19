@@ -3,7 +3,7 @@ import "./scss/style.scss";
 import { TW_CITIES } from "./utils/CITY_LIST";
 
 function App() {
-  const [location, setLocation] = useState("%E8%8A%B1%E8%93%AE%E7%B8%A3");
+  const [location, setLocation] = useState("%E8%87%BA%E5%8C%97%E5%B8%82");
   const weatherUrl = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-1123A71D-C88B-4D60-A105-4B55D0714360&format=JSON&locationName=${location}`;
   const [WxArr, setWxArr] = useState([]);
   const [PoPArr, setPoPArr] = useState([]);
