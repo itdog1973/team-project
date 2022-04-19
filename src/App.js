@@ -14,6 +14,7 @@ function App() {
   const [MinTArr, setMinTArr] = useState([]);
   const [CIArr, setCIArr] = useState([]);
   const [MaxArr, setMaxArr] = useState([]);
+  const [unit, setUnit] = useState("C");
 
   useEffect(() => {
     const initialLoad = async () => {
@@ -74,12 +75,44 @@ function App() {
               <div>結束時間：{v.endTime}</div>
               <div>天氣狀況：{v.parameter.parameterName}</div>
               <div>濕度：{PoPArr[i].parameter.parameterName}</div>
-              <div>最低溫：{MinTArr[i].parameter.parameterName}</div>
-              <div>最高溫：{MaxArr[i].parameter.parameterName}</div>
+              <div>
+                最低溫：
+                {unit === "C"
+                  ? `${MinTArr[i].parameter.parameterName}℃`
+                  : `${Math.round(
+                      (MinTArr[i].parameter.parameterName * 9) / 5 + 32
+                    )}°F`}
+              </div>
+              <div>
+                最高溫：
+                {unit === "C"
+                  ? `${MaxArr[i].parameter.parameterName}℃`
+                  : `${Math.round(
+                      (MaxArr[i].parameter.parameterName * 9) / 5 + 32
+                    )}°F`}
+              </div>
               <div>體感：{CIArr[i].parameter.parameterName}</div>
             </div>
           </div>
         ))}
+      </div>
+      <div className="">
+        <div
+          onClick={() => {
+            setUnit("F");
+          }}
+          className=""
+        >
+          ℉
+        </div>
+        <div
+          onClick={() => {
+            setUnit("C");
+          }}
+          className=""
+        >
+          ℃
+        </div>
       </div>
     </div>
   );
