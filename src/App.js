@@ -46,18 +46,22 @@ function App() {
           ))}
         </select>
       </header>
-      {WxArr.map((v, i) => (
-        <div class="weather" key={v.startTime}>
-          <img src={require("./assets/images/sun.png")} alt="" />
-          <div>開始時間：{v.startTime}</div>
-          <div>結束時間：{v.endTime}</div>
-          <div>天氣狀況：{v.parameter.parameterName}</div>
-          <div>濕度：{PoPArr[i].parameter.parameterName}</div>
-          <div>最低溫：{MinTArr[i].parameter.parameterName}</div>
-          <div>最高溫：{MaxArr[i].parameter.parameterName}</div>
-          <div>體感：{CIArr[i].parameter.parameterName}</div>
-        </div>
-      ))}
+      <div className="weather__container">
+        {WxArr.map((v, i) => (
+          <div className="weather" key={v.startTime}>
+            <div className="weather__pic"><img src={require("./assets/images/sun.png")} alt="" /></div>
+            <div className="weather__txt">
+              <div>開始時間：{v.startTime}</div>
+              <div>結束時間：{v.endTime}</div>
+              <div>天氣狀況：{v.parameter.parameterName}</div>
+              <div>濕度：{PoPArr[i].parameter.parameterName}</div>
+              <div>最低溫：{MinTArr[i].parameter.parameterName}</div>
+              <div>最高溫：{MaxArr[i].parameter.parameterName}</div>
+              <div>體感：{CIArr[i].parameter.parameterName}</div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
