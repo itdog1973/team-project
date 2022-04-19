@@ -96,23 +96,23 @@ function App() {
           </div>
         ))}
       </div>
-      <div className="">
-        <div
+      <div className="FC-switch">
+        <button
           onClick={() => {
             setUnit("F");
           }}
-          className=""
+          className="F-btn btn"
         >
           ℉
-        </div>
-        <div
+        </button>
+        <button
           onClick={() => {
             setUnit("C");
           }}
-          className=""
+          className="C-btn btn"
         >
           ℃
-        </div>
+        </button>
       </div>
     </div>
   );

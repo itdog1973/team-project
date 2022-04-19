@@ -171,4 +171,54 @@ body {
 			font-size: 20px;
 		}
 	}
+
+
+	.FC-switch{
+		display: flex;
+		width: 100%;
+		margin-top: 50px;
+		justify-content: center;
+		align-items: center;
+		height: 100px;
+	}.F-btn{
+		margin-right: 30px;
+		background: linear-gradient(to right, #4568dc, #b06ab3);
+		color: #fff;
+		width: 100px;
+		text-align: center;
+		line-height: 50px;
+		box-shadow: 0 9px #999;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+		outline: none;
+		
+	}.C-btn{
+		margin-left: 30px;
+		background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
+		color: #fff;
+		width: 100px;
+		text-align: center;
+		line-height: 50px;
+		box-shadow: 0 9px #999;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+		outline: none;
+	}
+
+	.C-btn:hover{background: linear-gradient(to LEFT, #9cecfb, #65c7f7, #0052d4);};
+	.F-btn:hover{background: linear-gradient(to LEFT, #4568dc, #b06ab3);}
+
+	.C-btn:active{
+		background: linear-gradient(to LEFT, #9cecfb, #65c7f7, #0052d4);
+		box-shadow: 0 5px #666;
+  		transform: translateY(4px);
+	}
+
+	.F-btn:active{
+		background: linear-gradient(to LEFT, #4568dc, #b06ab3);
+		box-shadow: 0 5px #666;
+  		transform: translateY(4px);
+	}
 }
