@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import "./scss/style.scss";
 import { TW_CITIES, TIME } from "./utils/CITY_LIST";
-import sunny from "./images/sun.png";
+import sunny from "./images/sun.gif";
 import rainy from "./images/rainy.gif";
-import cloudyMoon from "./images/cloudy.png";
-import cloudySun from "./images/cloudy_sun.png";
+import cloudyMoon from "./images/cloudy.gif";
+import cloudySun from "./images/cloudy_sun.gif";
 
 function App() {
   const [location, setLocation] = useState("%E8%87%BA%E5%8C%97%E5%B8%82");
