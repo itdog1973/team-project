@@ -3,7 +3,7 @@ import "./scss/style.scss";
 import { TW_CITIES, TIME } from "./utils/CITY_LIST";
 import sunny from "./images/sun.gif";
 import rainy from "./images/rainy.gif";
-import cloudyMoon from "./images/cloudy.gif";
+import cloudyMoon from "./images/cloudy.png";
 import cloudySun from "./images/cloudy_sun.gif";
 
 function App() {
