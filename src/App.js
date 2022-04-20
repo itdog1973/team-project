@@ -25,7 +25,7 @@ function App() {
         },
       });
       let data = await response.json();
-
+      console.log(data);
       setWxArr(data.records.location[0].weatherElement[0].time);
       setPoPArr(data.records.location[0].weatherElement[1].time);
       setMinTArr(data.records.location[0].weatherElement[2].time);
@@ -41,6 +41,25 @@ function App() {
     setLocation(city);
   };
 
+  const [trigger, setTrigger] = useState(null);
+  const [count, setCount] = useState([]);
+  const weathers=document.querySelector(".weather__container");
+  const ul=document.querySelector(".switch-day")
+
+  useEffect(()=>{
+    console.log(trigger);
+    console.log(weathers);
+    console.log(count);
+    count.filter((item)=>{
+      if(item != trigger){
+        weathers.children[item].className="weather";
+      }
+    })
+    if (weathers) {
+      weathers.children[trigger].className="weather weather__init";
+    }
+  }, [trigger, count])
+
   return (
     <div className="App">
       <header>
@@ -50,7 +69,7 @@ function App() {
             <option key={v} value={v}>
               {v}
             </option>
-          ))}
+          ))} 
         </select>
       </header>
       <div className="weather__container">
@@ -96,6 +115,20 @@ function App() {
           </div>
         ))}
       </div>
+
+      <ul className="switch-day">
+        {WxArr.map((v, i) => (
+          <li key={i} onClick={()=>{
+            setTrigger(i)
+            console.log("click:",trigger);
+            setCount([0,1,2])
+            }}>
+            <i className="switch__icon"></i>
+            <span>{i}</span>
+          </li>
+        ))}
+      </ul>
+
       <div className="FC-switch">
         <button
           onClick={() => {
