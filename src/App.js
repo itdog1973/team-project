@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "./scss/style.scss";
-import { TW_CITIES } from "./utils/CITY_LIST";
+import { TW_CITIES, TIME } from "./utils/CITY_LIST";
 import sunny from "./images/sun.png";
 import rainy from "./images/rainy.gif";
 import cloudyMoon from "./images/cloudy.png";
@@ -41,7 +41,7 @@ function App() {
     setLocation(city);
   };
 
-  const [trigger, setTrigger] = useState(null);
+/*   const [trigger, setTrigger] = useState(null);
   const [count, setCount] = useState([]);
   const weathers=document.querySelector(".weather__container");
   const ul=document.querySelector(".switch-day")
@@ -51,6 +51,7 @@ function App() {
     console.log(weathers);
     console.log(count);
     count.filter((item)=>{
+      console.log(item);
       if(item != trigger){
         weathers.children[item].className="weather";
       }
@@ -59,6 +60,15 @@ function App() {
       weathers.children[trigger].className="weather weather__init";
     }
   }, [trigger, count])
+ */
+
+  const [current, setCurrent] = useState(0);
+  const clickEvent = useCallback((item, key) => {
+    setCurrent(key);
+  });
+  const classNameSJp = useCallback((cur) => {
+    return current === cur ? 'weather weather__choose' : 'weather';
+  });
 
   return (
     <div className="App">
@@ -74,7 +84,7 @@ function App() {
       </header>
       <div className="weather__container">
         {WxArr.map((v, i) => (
-          <div className="weather" key={v.startTime}>
+          <div className={classNameSJp(i)} key={i}>
             <div className="weather__pic">
               <img
                 src={
@@ -117,14 +127,10 @@ function App() {
       </div>
 
       <ul className="switch-day">
-        {WxArr.map((v, i) => (
-          <li key={i} onClick={()=>{
-            setTrigger(i)
-            console.log("click:",trigger);
-            setCount([0,1,2])
-            }}>
+        {TIME.map((item, i) => (
+          <li className={i === current && 'choose'} key={i} onClick={clickEvent.bind(null, item, i)}>
             <i className="switch__icon"></i>
-            <span>{i}</span>
+            <span>{item}</span>
           </li>
         ))}
       </ul>
@@ -152,3 +158,4 @@ function App() {
 }
 
 export default App;
+

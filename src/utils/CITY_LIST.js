@@ -23,6 +23,13 @@ const TW_CITIES = [
   "連江縣",
 ];
 
+const TIME= [
+  "凌晨",
+  "早上",
+  "晚上"
+];
+
 module.exports = {
   TW_CITIES,
+  TIME
 };

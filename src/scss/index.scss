@@ -113,7 +113,7 @@ li {
 		.weather{
 			display: none;
 		}
-		.weather__init {
+		.weather__choose {
 			@include flex_type(center);
 			flex-direction: column;
 			margin: 0 30px;
