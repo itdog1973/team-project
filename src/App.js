@@ -25,7 +25,6 @@ function App() {
         },
       });
       let data = await response.json();
-      console.log(data);
       setWxArr(data.records.location[0].weatherElement[0].time);
       setPoPArr(data.records.location[0].weatherElement[1].time);
       setMinTArr(data.records.location[0].weatherElement[2].time);
