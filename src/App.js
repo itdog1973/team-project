@@ -107,8 +107,8 @@ function App() {
 
       <ul className="switch-day">
         {TIME.map((item, i) => (
-          <li className={i === current && 'choose'} key={i} onClick={clickEvent.bind(null, item, i)}>
-            <i className="switch__icon"></i>
+          <li  key={i} onClick={clickEvent.bind(null, item, i)}>
+            <i className={i === current && 'choose'}></i>
             <span>{item}</span>
           </li>
         ))}

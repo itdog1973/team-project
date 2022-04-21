@@ -24,9 +24,9 @@ const TW_CITIES = [
 ];
 
 const TIME= [
-  "凌晨",
-  "早上",
-  "晚上"
+  "現在",
+  "12hr後",
+  "24hr後"
 ];
 
 module.exports = {

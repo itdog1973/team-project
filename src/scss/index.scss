@@ -13,47 +13,18 @@ $width: (
 	justify-content: $type;
 }
 
-@keyframes show_right {
-    0% {
-        left: 100%;
-        opacity: 0;
-    }
-    100% {
-        left: 0;
-        opacity: 1;
-    }
+@keyframes slide-in-fwd-center {
+	0% {
+		-webkit-transform: translateZ(-1400px);
+		transform: translateZ(-1400px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0);
+		opacity: 1;
+	}
 }
-@keyframes hide_right {
-    0% {
-        left: 0%;
-        opacity: 1;
-    }
-    100% {
-        left: -100%;
-        opacity: 0;
-    }
-}
-@keyframes show_left {
-    0% {
-        left: -100%;
-        opacity: 0;
-    }
-    100% {
-        left: 0;
-        opacity: 1;
-    }
-}
-@keyframes hide_left {
-    0% {
-        left: 0%;
-        opacity: 1;
-    }
-    100% {
-        left: 100%;
-        opacity: 0;
-    }
-}
-
 
 /* ==================== initialize ==================== */
 * {
@@ -86,21 +57,27 @@ li {
 
 		width: 100%;
 		height: 50px;
-		margin: 50px 0;
 		h1 {
+			padding-left: 50px;
 			font-size: 40px;
+			color: #333;
 		}
 		select {
 			border: 0;
 			border-radius: 2px;
 			margin-left: 20px;
 
-			height: 40px;
-			font-size: 34px;
+			height: 50px;
+			font-size: 35px;
+			color: #333;
+
+			outline: none;
 			cursor: pointer;
 			background-color: #fafafa;
+
 			&:hover {
-				border-bottom: 2px solid $font_color;
+				border-radius: 2px;
+				border-bottom: 2px solid #666;
 			}
 		}
 	}
@@ -108,100 +85,90 @@ li {
 	.weather__container{
 		@include flex_type(center);
 		align-items: center;
-		margin: 30px 0;
-
 		.weather{
 			display: none;
 		}
 		.weather__choose {
 			@include flex_type(center);
 			flex-direction: column;
-			margin: 0 30px;
-		}
-		.weather__right{
-			animation-name: hide_right;
-			animation-duration: .5s;
-		}
-		.weather__left{
-			animation-name: hide_left;
-			animation-duration: .5s;
+			// margin: 0 30px;
+			animation: slide-in-fwd-center 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;			
 		}
 		.weather__pic{
 			display: flex;
 			align-items: center;
 			img{
+				margin: 20px 0;
 				width: 100px;
 				height: 100px;
-				object-fit: cover;
+				object-fit: contain;
 			}
 		}
 	}
 
+
 	.switch-day{
 		@include flex_type(space-between);
-		margin: 30px 0;
-		width: 500px;
+		margin: 20px 0;
+		margin-top: 60px;
+		width: 430px;
 		li {
+			position: relative;
 			@include flex_type(center);
 			align-items: center;
-			width: 50px;
-			height: 50px;
+			// width: 50px;
+			// height: 50px;
 			cursor: pointer;
-			&:hover {
-				border-radius: 25px;
-				background-color: #fee573;
-				// border: 1px solid #333;
-			}	
+			i { 
+				position: absolute;
+				top: -3px;
+				width: 50px;
+				height: 50px;
+			}
+			span {
+				z-index: 1;
+				&:hover {
+					transition: .5s;
+					transform: scale(1.1);
+				}
+			}
 		}
 		.choose {
+			animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;			
 			border-radius: 25px;
 			background-color: #fee573;
 		}
 	}
 
-	.FC-switch{
-		display: flex;
-		width: 100%;
-		margin-top: 50px;
-		justify-content: center;
+	.FC-switch {
+		@include flex_type(center);
 		align-items: center;
-		height: 100px;
-		.F-btn{
-			margin-right: 30px;
-			background: linear-gradient(to right, #4568dc, #b06ab3);
-			color: #fff;
-			width: 100px;
-			text-align: center;
-			line-height: 50px;
-			box-shadow: 0 9px #999;
-			border-radius: 5px;
-			border: none;
-			cursor: pointer;
-			outline: none;
-			&:hover{background: linear-gradient(to LEFT, #9cecfb, #65c7f7, #0052d4);};
-			.F-btn:active{
-				background: linear-gradient(to LEFT, #4568dc, #b06ab3);
-				box-shadow: 0 5px #666;
-				transform: translateY(4px);
-			}
+		position: relative;
+
+		margin-top: 40px;
+		width: 100%;
+		&::after {
+			position: absolute;
+			top: -2px;
+			left: calc(50% - 2px);
+
+			content: "|";
+			width: 2px;
+			font-size: 25px;
+			// background-color: $font_color;
 		}
-		.C-btn{
-			margin-left: 30px;
-			background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
-			color: #fff;
-			width: 100px;
-			text-align: center;
-			line-height: 50px;
-			box-shadow: 0 9px #999;
-			border-radius: 5px;
-			border: none;
-			cursor: pointer;
+		.F-btn, .C-btn{
+			padding: 0 20px;
+			border: 0;
+			font-size: 25px;
+			color: #333;
+			
 			outline: none;
-			&:hover{background: linear-gradient(to LEFT, #4568dc, #b06ab3);}
-			:active{
-				background: linear-gradient(to LEFT, #9cecfb, #65c7f7, #0052d4);
-				box-shadow: 0 5px #666;
-				transform: translateY(4px);
+			cursor: pointer;
+			background-color: #fafafa;
+			&:hover {
+				transition: .2s;
+				transform: scale(1.2);
 			}
 		}
 	}
