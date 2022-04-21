@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "./scss/style.scss";
-import { TW_CITIES } from "./utils/CITY_LIST";
-import sunny from "./images/sun.png";
+import { TW_CITIES, TIME } from "./utils/CITY_LIST";
+import sunny from "./images/sun.gif";
 import rainy from "./images/rainy.gif";
 import cloudyMoon from "./images/cloudy.png";
-import cloudySun from "./images/cloudy_sun.png";
+import cloudySun from "./images/cloudy_sun.gif";
 
 function App() {
   const [location, setLocation] = useState("%E8%87%BA%E5%8C%97%E5%B8%82");
@@ -25,7 +25,7 @@ function App() {
         },
       });
       let data = await response.json();
-
+      console.log(data);
       setWxArr(data.records.location[0].weatherElement[0].time);
       setPoPArr(data.records.location[0].weatherElement[1].time);
       setMinTArr(data.records.location[0].weatherElement[2].time);
@@ -41,6 +41,14 @@ function App() {
     setLocation(city);
   };
 
+  const [current, setCurrent] = useState(0);
+  const clickEvent = useCallback((item, key) => {
+    setCurrent(key);
+  });
+  const classNameSJp = useCallback((cur) => {
+    return current === cur ? 'weather weather__choose' : 'weather';
+  });
+
   return (
     <div className="App">
       <header>
@@ -50,12 +58,12 @@ function App() {
             <option key={v} value={v}>
               {v}
             </option>
-          ))}
+          ))} 
         </select>
       </header>
       <div className="weather__container">
         {WxArr.map((v, i) => (
-          <div className="weather" key={v.startTime}>
+          <div className={classNameSJp(i)} key={i}>
             <div className="weather__pic">
               <img
                 src={
@@ -96,6 +104,16 @@ function App() {
           </div>
         ))}
       </div>
+
+      <ul className="switch-day">
+        {TIME.map((item, i) => (
+          <li className={i === current && 'choose'} key={i} onClick={clickEvent.bind(null, item, i)}>
+            <i className="switch__icon"></i>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
       <div className="FC-switch">
         <button
           onClick={() => {
@@ -119,3 +137,4 @@ function App() {
 }
 
 export default App;
+
