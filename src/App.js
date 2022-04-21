@@ -41,27 +41,6 @@ function App() {
     setLocation(city);
   };
 
-/*   const [trigger, setTrigger] = useState(null);
-  const [count, setCount] = useState([]);
-  const weathers=document.querySelector(".weather__container");
-  const ul=document.querySelector(".switch-day")
-
-  useEffect(()=>{
-    console.log(trigger);
-    console.log(weathers);
-    console.log(count);
-    count.filter((item)=>{
-      console.log(item);
-      if(item != trigger){
-        weathers.children[item].className="weather";
-      }
-    })
-    if (weathers) {
-      weathers.children[trigger].className="weather weather__init";
-    }
-  }, [trigger, count])
- */
-
   const [current, setCurrent] = useState(0);
   const clickEvent = useCallback((item, key) => {
     setCurrent(key);
